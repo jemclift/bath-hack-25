@@ -1,6 +1,39 @@
-<div>LOADING</div>
+<!DOCTYPE html>
+<html>
 
-<script>
+<head>
+    <link href="https://unpkg.com/98.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../static/styles/global.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/styles/loading.css" rel="stylesheet" type="text/css"/>
+
+    <link href="static/styles/global.css" rel="stylesheet" type="text/css"/>
+    <link href="static/styles/loading.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+  <div id="main-window" class="window" style="width: 320px">
+    <div class="title-bar">
+      <div class="title-bar-text">
+          PLEASE HOLD...
+      </div>
+      <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close" onclick="this.parentElement.parentElement.parentElement.remove()"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <center><p>Your solution is <strong>loading<span id="dots"></span></strong></p></center>
+    </div>
+  </div>
+
+  <script src="../static/scripts/loading.js"></script> 
+
+  <script src="static/scripts/loading.js"></script> 
+
+  <script>
     const jobId = "{{ job_id }}";
   
     const interval = setInterval(() => {
@@ -14,3 +47,6 @@
         });
     }, 1000);
   </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url("../assets/static3.gif");
+    /* background-size: 100%; */
+}
+.window {
+    position: absolute;
+}
+
+#main-window {
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+#main-window .window-body {
+    padding: 1rem;
+}
+
+span {
+    width: 1rem;
+    display: inline-block;
+    text-align: left;
+}
+
+#main-window .window-body {
+    font-size: 2rem;
+    padding: 1rem;
+}
