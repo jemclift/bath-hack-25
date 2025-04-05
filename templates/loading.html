@@ -1,0 +1,16 @@
+<div>LOADING</div>
+
+<script>
+    const jobId = "{{ job_id }}";
+  
+    const interval = setInterval(() => {
+      fetch(`/check_status/${jobId}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.ready) {
+            clearInterval(interval);
+            window.location.href = data.url;
+          }
+        });
+    }, 1000);
+  </script>

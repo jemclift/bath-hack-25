@@ -9,7 +9,7 @@ from io import BytesIO
 class ImageGenerator:
     
     # constructor
-    def __init__(self, API_KEY, model="dalle-e-2"):
+    def __init__(self, API_KEY, model="dall-e-2"):
         self.items = []
         self.client = openai.OpenAI(
            api_key=API_KEY,
@@ -18,24 +18,32 @@ class ImageGenerator:
         self.model = model
         
     # add new item to existing list of items
-    def add_item(self, item):
-        self.items.append(item)
+    def add_items(self, items):
+        for i in items:
+            self.items.append(i)
+        
         
     # function to generate the image
-    def generate_image(self):
+    def generate_image(self, location):
         
         prompt = ", ".join(self.items)
-        response = self.client.images.generate(
-            model="dall-e-2",
-            prompt=prompt,
-        )
-        return response.data[0].url    
+        try:
+            response = self.client.images.generate(
+                model=self.model,
+                prompt=prompt,
+            )
+            self.save_image(response.data[0].url, f"static/{location}")
+            return 1
+        except Exception as e:
+            print(response.data[0].url)
+            print("error: ", e)
+            return -1
 
 
-    def save_image(self, URL):
-        response = requests.get(URL)
+    def save_image(self, image_url, location):
+        response = requests.get(image_url)
         img = Image.open(BytesIO(response.content))
-        img.save("test.png")
+        img.save(location)
         
 
 if __name__ == "__main__":
