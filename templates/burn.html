@@ -8,16 +8,48 @@
 
         <link href="../static/styles/global.css" rel="stylesheet" type="text/css" />
         <link href="../static/styles/burn.css" rel="stylesheet" type="text/css" />
+        <link href="../static/styles/shredder.css" rel="stylesheet" type="text/css" />
 
         <link href="static/styles/global.css" rel="stylesheet" type="text/css" />
         <link href="static/styles/burn.css" rel="stylesheet" type="text/css" />
+        <link href="static/styles/shredder.css" rel="stylesheet" type="text/css" />
     </head>
 
-    <body>
-        <img src="{{ url_for('static', filename=image_url) }}" alt="Generated Image">      
+    <style>
+        :root {
+            --img: url('{{ url_for('static', filename=image_url) }}');
+        }
+    </style>
 
-        <script src="../static/scripts/burn.js"></script> 
+    <body>
+        <div id="main-window" class="window" style="width: 320px">
+            </div>
+            <div class="window-body">
+                <div class="shred-me">
+              <button>Shred!</button></div>
+            </div>
+          </div>
+
+
+        <div class="full_image_container">
+            <div class="full_image">
+                <img src="{{ url_for('static', filename=image_url) }}"/>
+            </div>
+        </div>
+        <div class="shredded_container">
+            <div id="strand-1" class="paper" style="--i:0; --width:43px; --delay:1s; --duration:10s; --rx:3turn; --ry:2turn;       --offset:5px;    --bgx:-0px;"></div>
+            <div id="strand-2" class="paper" style="--i:1; --width:43px; --delay:1s; --duration:10s; --rx:2turn; --ry:1turn;       --offset:60px;    --bgx:-50px;"></div>
+            <div id="strand-3" class="paper" style="--i:2; --width:43px; --delay:1s; --duration:10s; --rx:4turn; --ry:2turn;       --offset:115px;   --bgx:-100px;"></div>
+            <div id="strand-4" class="paper" style="--i:3; --width:43px; --delay:1s; --duration:10s; --rx:3turn; --ry:1turn;       --offset:170px;   --bgx:-150px;"></div>
+            <div id="strand-5" class="paper" style="--i:4; --width:43px; --delay:1s; --duration:10s; --rx:5turn; --ry:1.5turn;       --offset:225px;   --bgx:-200px;"></div>
+            <div id="strand-6" class="paper" style="--i:5; --width:43px; --delay:1s; --duration:10s; --rx:3turn; --ry:2turn;       --offset:280px;   --bgx:-250px;"></div>
+            <div id="strand-7" class="paper" style="--i:6; --width:43px; --delay:1s; --duration:10s;  --rx:2.5turn; --ry:3turn;  --offset:335px;   --bgx:-300px;"></div>
+            <div id="strand-8" class="paper" style="--i:7; --width:43px; --delay:1s; --duration:10s; --rx:4turn; --ry:2.5turn;     --offset:390px;   --bgx:-350px;"></div>
+        </div>    
+
+        <script src="../static/scripts/index.js"></script> 
 
         <script src="static/scripts/burn.js"></script> 
+        <script type="text/javascript" src="static/scripts/index.js"></script>
     </body>
 </html>

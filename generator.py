@@ -9,7 +9,7 @@ from io import BytesIO
 class ImageGenerator:
     
     # constructor
-    def __init__(self, API_KEY, model="dall-e-2"):
+    def __init__(self, API_KEY, model="dall-e-3"):
         self.items = []
         self.client = openai.OpenAI(
            api_key=API_KEY,
@@ -20,17 +20,20 @@ class ImageGenerator:
     # add new item to existing list of items
     def add_items(self, items):
         for i in items:
-            self.items.append(i)
+            if i != "":
+                self.items.append(i)
         
         
     # function to generate the image
     def generate_image(self, location):
-        
+        self.items[-1] = "and " + self.items[-1]
         prompt = ", ".join(self.items)
+        full_prompt = f"""A pixel-art style scene showing {prompt} all positioned side by side on a plain background. Don't put in any text"""
+                
         try:
             response = self.client.images.generate(
                 model=self.model,
-                prompt=prompt,
+                prompt=full_prompt,
             )
             self.save_image(response.data[0].url, f"static/{location}")
             return 1
