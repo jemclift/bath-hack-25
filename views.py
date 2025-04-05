@@ -29,8 +29,6 @@ def burn():
         image_id = str(uuid4())
         local_url = f"assets/{image_id}.jpg"
         
-        print("Image ID: ", image_id)
-        
         jobs[image_id] = {
             "status": "processing",
             "local_url": local_url
@@ -40,8 +38,6 @@ def burn():
         generator.add_items(request.args.values())
                 
         def generate_image(local_url, job_id):
-            print("Generating IMAGE")
-            #time.sleep(5)
             generator.generate_image(local_url)
             jobs[job_id]["status"] = "done"
 
