@@ -14,17 +14,49 @@
     </head>
 
     <body>
-        <p>BATH HACK '25</p>
+        <form action="/burn" class="window" method="get" class="form-example" autocomplete="off">
 
-        <form action="/burn" method="get" class="form-example">
-            <div class="form-example">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+            <div class="title-bar">
+                <div class="title-bar-text">chris and jem.exe</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button aria-label="Close"></button>
+                </div>
+              </div>
+
+            <label id="title">top 5 things i hate</label>
+            
+            <div class="row">
+              <label for="name">1</label>
+              <input type="text" name="word1" id="name"/>
             </div>
-            <div class="form-example">
-              <input type="submit" value="Subscribe!" />
+
+            <div class="row">
+                <label for="name">2</label>
+                <input type="text" name="word2" id="name"/>
             </div>
-          </form>
+
+            <div class="row">
+                <label for="name">3</label>
+                <input type="text" name="word3" id="name"/>
+            </div>
+
+            <div class="row">
+                <label for="name">4</label>
+                <input type="text" name="word4" id="name"/>
+            </div>
+
+            <div class="row">
+                <label for="name">5</label>
+                <input type="text" name="word5" id="name"/>
+            </div>
+
+            <div class="buttons">
+                <button type="button" onclick="this.parentElement.parentElement.reset();">nah, forget it</button>
+                <input type="submit" value="BURN!"/>
+            </div>
+        </form>
           
 
         <script src="../static/scripts/main.js"></script> 
