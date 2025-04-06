@@ -23,7 +23,8 @@ def main():
 
 @core.route("/burn", methods=["GET", "POST"])
 def burn():
-    if request.method == "GET":
+        
+    if request.method == "GET":        
         load_dotenv()
         API_KEY = getenv("API_KEY")
         image_id = str(uuid4())
@@ -37,11 +38,19 @@ def burn():
         generator = ImageGenerator(API_KEY)
         generator.add_items(request.args.values())
                 
-        def generate_image(local_url, job_id):
-            generator.generate_image(local_url)
+        def generate_image(local_url, job_id, test):
+            if test:
+                print("HERE")
+                jobs[job_id]["local_url"] = "assets/test_image.jpg"
+            else:
+                generator.generate_image(local_url)
             jobs[job_id]["status"] = "done"
 
-        thread = threading.Thread(target=generate_image, args=(local_url, image_id))
+        test=False
+        if generator.items[0] == "queen":
+            test=True
+
+        thread = threading.Thread(target=generate_image, args=(local_url, image_id, test))
         thread.start()
         
         return redirect(url_for("core.loading", job_id=image_id))    
