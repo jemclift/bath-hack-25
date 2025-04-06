@@ -1,3 +1,8 @@
+body{
+    margin:0;
+}
+
+
 .full_image_container{
     position: fixed;
     width: 100%;
@@ -5,7 +10,7 @@
 }
 
 .full_image{
-    width: 400px;
+    width: 30vh;
     margin: auto;
 }
 
@@ -22,23 +27,23 @@
     display: flex;
     justify-content: center; 
     align-items: center;     
-    gap: 8px;               
+    gap: 0.45vh;               
     flex-wrap: nowrap;   
     margin: auto;
     width: 100%;
-    height: 100%; 
-    top: 450px;  
+    height: 100%;
+    top: 30vh;
     overflow: hidden;
   }
   
   .paper {
-    top: -808px;
+    top: -65vh;
     position: relative;
     width: var(--width);
-    height: 400px;            /* example height */
+    height: 30vh;
     background-image: var(--img);
     
-    background-size: 400px 100%;
+    background-size: 30vh 100%;
     background-repeat: no-repeat;
     background-position-x: var(--bgx);
   }
