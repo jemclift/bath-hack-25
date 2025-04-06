@@ -2,30 +2,43 @@
 
 <html>
     <head>
-        <title>TITLE HERE</title>
+        <title>shred ur problems</title>
 
         <link href="https://unpkg.com/98.css" rel="stylesheet" type="text/css"/>
 
         <link href="../static/styles/global.css" rel="stylesheet" type="text/css" />
-        <link href="../static/styles/burn.css" rel="stylesheet" type="text/css" />
         <link href="../static/styles/shredder.css" rel="stylesheet" type="text/css" />
 
         <link href="static/styles/global.css" rel="stylesheet" type="text/css" />
-        <link href="static/styles/burn.css" rel="stylesheet" type="text/css" />
         <link href="static/styles/shredder.css" rel="stylesheet" type="text/css" />
     </head>
 
     <style>
         :root {
             --img: url('{{ url_for('static', filename=image_url) }}');
+            /* --img: url('https://avatars.githubusercontent.com/u/75378784?v=4') */
         }
     </style>
 
     <body>
-        <div id="main-window" class="window" style="width: 320px; position:absolute; top:0; left:0; z-index:999999">
+        <div id="logo" class="window">
+            <div class="window-body">
+                <a href="/"></a>
+            </div>
+        </div>
+
+        <div id="wrapper">
+
+        <div id="behind" class="window">
+            <div class="window-body">
+                <center><label>relax, it's shredded</label></center>
+            </div>
+        </div>
+
+        <div id="main-window" class="window">
             <div class="window-body">
                 <div class="shred-me">
-              <button>Shred!</button></div>
+              <center><button>Shred!</button></div></center>
             </div>
         </div>
 
@@ -33,6 +46,7 @@
         <div class="full_image_container">
             <div class="full_image">
                 <img src="{{ url_for('static', filename=image_url) }}"/>
+                <!-- <img src="https://avatars.githubusercontent.com/u/75378784?v=4"/> -->
             </div>
         </div>
         <div class="shredded_container">
@@ -45,6 +59,7 @@
             <div id="strand-7" class="paper" style="--i:6; --width:3.5vh; --delay:1s; --duration:10s;  --rx:2.5turn; --ry:3turn;  --offset:36vh;   --bgx:-23.142vh;"></div>
             <div id="strand-8" class="paper" style="--i:7; --width:3.5vh; --delay:1s; --duration:10s; --rx:4turn; --ry:2.5turn;   --offset:42vh;   --bgx:-27vh;"></div>
         </div>    
+        </div>
 
         <script src="../static/scripts/index.js"></script> 
 
