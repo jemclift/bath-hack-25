@@ -1,3 +1,22 @@
 body {
     background-color: cadetblue;
 }
+
+#logo {
+    /* width: 20vh; */
+    /* height: 20vh; */
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 1vh;
+    left: 1vh;
+}
+
+#logo a {
+    background-image: url("../assets/logotransparent.svg");
+    width: 20vh;
+    height: 8vh;
+    background-size: 100%;
+    display: inline-block;
+    /* background-color: blue; */
+}
